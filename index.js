@@ -9,7 +9,11 @@ const port = process.env.PORT || 3001
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json())
 
-app.listen(3000, () => {
+app.get('/hola/:name',(req,res ) => {
+    res.send({message: `Hola ${req.params.name}!`})
+})
+
+app.listen(3001, () => {
     console.log(`API REST corriendo en http://localhost:${port}`);
     
 })
