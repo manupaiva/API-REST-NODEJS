@@ -51,11 +51,25 @@ app.post('/api/product', (req, res) => {
 })
 
 app.put('/api/product/:productId', (req, res) => {
+    let productId = req.params.productId
+    let update = req.body
 
+    Product.findByIdAndUpdate(productId, update, (err, productUpdated) => {
+        if(err) res.status(500).send({ mesagge: `Error al actualizar el producto: ${err}` })
+
+        res.status(200).send({product: productUpdated})
+    })
 })
 
 app.delete('/api/product/:productId', (req, res) => {
-
+    let productId = req.params.productId
+    Product.findById(productId, (err, product) => {
+        if(err) res.status(500).send({ mesagge: `Error al borrar el producto: ${err}` })
+        product.remove(err => {
+            if(err) res.status(500).send({ mesagge: `Error al borrar el producto: ${err}` })
+            res.status(200).send({ mesagge: `El producto ha sido eliminado` })
+        })
+    })
 })
 
 
