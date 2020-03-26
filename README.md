@@ -1,5 +1,3 @@
 # API-REST-NODEJS
 
-installing mongoose:
-
-npm install --save mongoose
+creating product schema in mongoose
