@@ -1,3 +1,3 @@
 # API-REST-NODEJS
 
-creating product schema in mongoose
+adding put and delete methods
