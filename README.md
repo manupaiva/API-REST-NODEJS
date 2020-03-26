@@ -1,3 +1,3 @@
 # API-REST-NODEJS
 
-create GET endpoint with parameters
+create endpoints GET,POST,PUT,DELETE
