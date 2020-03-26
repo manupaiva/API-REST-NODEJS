@@ -1,3 +1,5 @@
 # API-REST-NODEJS
 
-create endpoints GET, POST, PUT, DELETE
+installing mongoose:
+
+npm install --save mongoose
