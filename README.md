@@ -1,3 +1,3 @@
 # API-REST-NODEJS
 
-adding put and delete methods
+Adding user schema 
