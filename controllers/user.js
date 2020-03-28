@@ -6,14 +6,19 @@ const service = require('../services')
 
 function signUp (req, res) {
 	const user = new User({
-		email: req.query.email,
-		displayName: req.query.displayName,
-		password: req.query.password
+		email: req.body.email,
+		displayName: req.body.displayName,
+		password: req.body.password,
+		lastLogin: req.body.lastLogin
 	})
+	user.avatar = user.gravatar();
 
 	user.save( (err) => {
 		if (err) return res.status(500).send( { message: `Error al crear el usuario ${err}` } )
-		return res.status(201).send( { token: service.createToken(user) } )
+		return res.status(201).send( { 
+			token: service.createToken(user),
+			user 
+		} )
 	})
 }
 

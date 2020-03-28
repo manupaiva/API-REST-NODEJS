@@ -12,7 +12,7 @@ function isAuth (req, res, next) {
 	service.decodeToken(token).then(response => {
 		req.user = response
 		next()
-	}).catch(err => {
+	}).catch(response => {
 		res.status(response.status)
 	})
 }
